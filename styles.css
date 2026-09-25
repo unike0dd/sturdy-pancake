@@ -139,3 +139,6 @@ body.cart-open{overflow:hidden}
 .inventory-goods-section .inventory-search{margin:0 0 16px}
 .inventory-goods-section .finance-panel{padding-top:0}
 @media(max-width:700px){.library-disclosure>summary{min-height:54px;padding:12px 14px}.library-disclosure-content{padding:12px}}
+
+/* Isolated tutorial access for sturdy-pancake; no production authentication. */
+.tutorial-access-button{margin-top:12px}.tutorial-access-note{margin:8px 0 0;color:var(--muted);font-size:.76rem;line-height:1.4;text-align:center}
