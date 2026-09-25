@@ -24,7 +24,7 @@ function applyPreferences(){
   document.querySelector('meta[name="theme-color"]').content=preferences.theme==='dark'?'#0d1511':'#f4f6f0';
   const authValue=document.querySelector('.auth-value');
   if(authValue){
-    const shopImage=preferences.language==='es'?'assets/branding/cafteria_logo_ES.png':'assets/branding/cafteria_logo_EN.png';
+    const shopImage=preferences.language==='es'?'https://unike0dd.github.io/cappeto/assets/branding/cafteria_logo_ES.png':'https://unike0dd.github.io/cappeto/assets/branding/cafteria_logo_EN.png';
     authValue.style.setProperty('--auth-shop-image',`url("${shopImage}")`);
   }
   if($('authForm')?.dataset.mode)setAuthMode($('authForm').dataset.mode);
@@ -36,7 +36,12 @@ const state={products:[],cart:new Map(),category:'All',query:'',manageQuery:'',f
 const defaultBusinessProfile={name:'Cappeto',logo:'',address:'',phone:'',email:'',currency:'USD'};
 let businessProfile=loadBusinessProfile();
 let pendingBusinessLogo=businessProfile.logo;
-const previewHelpers=window.CAPPETO_PREVIEW_SESSION || {clearPreviewSessionState(){},persistRememberedEmail(){},restoreRememberedEmail(){return ''}};
+const TUTORIAL_SESSION_KEY='sturdy_pancake_tutorial_session';
+const previewHelpers={
+  persistRememberedEmail(storage,email,checked){if(checked&&email)storage.setItem('sturdy_remembered_email',email);else storage.removeItem('sturdy_remembered_email')},
+  restoreRememberedEmail(storage){return storage.getItem('sturdy_remembered_email')||''}
+};
+const tutorialOwner=()=>({id:'tutorial-owner',role:'owner',displayName:'Tutorial owner',tutorial:true});
 const money=cents=>new Intl.NumberFormat(preferences.language==='es'?'es-EC':'en-US',{style:'currency',currency:'USD'}).format(cents/100);
 const escapeHtml=value=>String(value).replace(/[&<>'"]/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[char]));
 const searchSynonyms=[
@@ -99,15 +104,15 @@ let staticCatalog=null;
 async function staticApi(path,options={}){
   const method=options.method||'GET';
   const body=JSON.parse(options.body||'{}');
-  if(path==='/api/auth/session')return{authenticated:false};
+  if(path==='/api/auth/session'){const active=sessionStorage.getItem(TUTORIAL_SESSION_KEY)==='active';return active?{authenticated:true,user:tutorialOwner(),csrfToken:''}:{authenticated:false}};
   if(path==='/api/auth/login'&&method==='POST')throw new Error('Staff sign-in requires the trusted identity service.');
-  if(path==='/api/auth/logout')return{ok:true};
+  if(path==='/api/auth/logout'){sessionStorage.removeItem(TUTORIAL_SESSION_KEY);return{ok:true}};
   if(!staticCatalog)staticCatalog=await fetch('data/products.json',{cache:'no-store',credentials:'omit'}).then(response=>{
     if(!response.ok)throw new Error('Request failed');
     return response.json();
   });
   if(path==='/api/products'&&method==='GET'){
-    return{...staticCatalog,products:staticCatalog.products.map(({procurementCostCents,purchaseTaxRate,purchaseDeliveryCents,procurementQuantity,returned,damaged,sold,purchaseDate,...product})=>product)};
+    return state.staff?.tutorial?staticCatalog:{...staticCatalog,products:staticCatalog.products.map(({procurementCostCents,purchaseTaxRate,purchaseDeliveryCents,procurementQuantity,returned,damaged,sold,purchaseDate,...product})=>product)};
   }
   if(path==='/api/orders/quote'&&method==='POST'){
     const lines=(body.items||[]).map(item=>({product:staticCatalog.products.find(entry=>entry.id===item.productId),quantity:Number(item.quantity)})).filter(line=>line.product&&Number.isInteger(line.quantity)&&line.quantity>0);
@@ -323,7 +328,15 @@ $('landingBrowse').addEventListener('click',async()=>{showStaffControls(false);a
 $('forgotPassword').addEventListener('click',()=>{$('authError').textContent=t('passwordResetInfo')});
 $('authForm').addEventListener('submit',async event=>{event.preventDefault();$('authError').textContent='';if(event.currentTarget.dataset.mode==='signup'){if($('authCode').value!==$('confirmPassword').value){$('authError').textContent=t('passwordMismatch');return}$('authError').textContent=t('signupBackendRequired');return}const button=$('signInButton');button.disabled=true;button.setAttribute('aria-busy','true');button.textContent=t('signingIn');try{const email=$('staffEmail').value.trim();const result=await api('/api/auth/login',{method:'POST',body:JSON.stringify({email,password:$('authCode').value})});previewHelpers.persistRememberedEmail(sessionStorage,email,$('rememberMe').checked);state.staff=result.user;state.csrf=result.csrfToken;showStaffControls(true);await loadCatalog();enterApp()}catch(error){$('authError').textContent=localizeError(error)}finally{button.disabled=false;button.removeAttribute('aria-busy');button.textContent=t('signIn')}});
 $('browseButton').addEventListener('click',async()=>{showStaffControls(false);await loadCatalog();enterApp()});
-$('logoutButton').addEventListener('click',async()=>{const previewSession=Boolean(state.staff && state.staff.preview);if(previewSession){window.CAPPETO_PREVIEW_SESSION.clearPreviewSessionState(sessionStorage);state.staff=null;state.csrf='';showStaffControls(false);showLanding();return}try{await api('/api/auth/logout',{method:'POST',body:'{}'})}catch(error){if(!error||error.message!=='Unauthorized')throw error}finally{location.reload()}});
+$('tutorialAccess').addEventListener('click',async()=>{
+  sessionStorage.setItem(TUTORIAL_SESSION_KEY,'active');
+  state.staff=tutorialOwner();
+  state.csrf='';
+  showStaffControls(true);
+  await loadCatalog();
+  enterApp();
+});
+$('logoutButton').addEventListener('click',async()=>{const tutorialSession=Boolean(state.staff&&state.staff.tutorial);if(tutorialSession){sessionStorage.removeItem(TUTORIAL_SESSION_KEY);state.staff=null;state.csrf='';showStaffControls(false);showLanding();return}try{await api('/api/auth/logout',{method:'POST',body:'{}'})}catch(error){if(!error||error.message!=='Unauthorized')throw error}finally{location.reload()}});
 $('categoryRow').addEventListener('click',event=>{const button=event.target.closest('[data-category]');if(!button)return;state.category=button.dataset.category;state.carouselIndex=0;renderCategories();renderProducts()});
 $('productGrid').addEventListener('click',event=>{const id=event.target.closest('[data-add]')?.dataset.add;if(!id)return;const p=state.products.find(item=>item.id===id);const quantity=Math.min((state.cart.get(id)||0)+1,p.stock);state.cart.set(id,quantity);renderCart();toast(t('productAdded',{name:productCopy(p).name}))});
 $('searchInput').addEventListener('input',event=>{state.query=event.target.value;state.carouselIndex=0;renderProducts()});
