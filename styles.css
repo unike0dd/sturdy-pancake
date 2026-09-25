@@ -142,3 +142,14 @@ body.cart-open{overflow:hidden}
 
 /* Isolated tutorial access for sturdy-pancake; no production authentication. */
 .tutorial-access-button{margin-top:12px}.tutorial-access-note{margin:8px 0 0;color:var(--muted);font-size:.76rem;line-height:1.4;text-align:center}
+
+
+/* Captioned HTML5 walkthrough for the Manage Products tutorial. */
+.tutorial-video-card{display:grid;grid-template-columns:minmax(14rem,.72fr) minmax(0,1.55fr);gap:clamp(1rem,3vw,2rem);align-items:center;margin:1.25rem 0 1.5rem;padding:clamp(1rem,2.5vw,1.5rem);border:1px solid var(--line);border-radius:1.25rem;background:var(--surface);box-shadow:var(--shadow)}
+.tutorial-video-copy{align-self:start}
+.tutorial-video-copy h2{margin:.65rem 0 .55rem;font:700 clamp(1.35rem,2.6vw,2rem)/1.15 Georgia,serif}
+.tutorial-video-copy p{margin:0;color:var(--muted);line-height:1.65}
+.tutorial-video-card video{display:block;width:100%;aspect-ratio:16/9;border:1px solid var(--line);border-radius:.9rem;background:#08110c;box-shadow:0 12px 28px rgba(0,0,0,.2)}
+.tutorial-video-card video:focus-visible{outline:3px solid var(--gold);outline-offset:4px}
+@media(max-width:760px){.tutorial-video-card{grid-template-columns:1fr}.tutorial-video-copy{max-width:42rem}}
+@media(prefers-reduced-motion:reduce){.tutorial-video-card video{scroll-behavior:auto}}
