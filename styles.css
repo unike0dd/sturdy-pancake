@@ -161,6 +161,6 @@ body.cart-open{overflow:hidden}
 .guided-walkthrough__actions button{min-height:2.7rem;padding:.55rem .85rem;border:1px solid var(--line);border-radius:99px;background:var(--surface);color:var(--ink);cursor:pointer}
 .guided-walkthrough__actions #walkthroughNext{background:var(--green);border-color:var(--green);color:#fff;font-weight:750}
 .guided-walkthrough button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
-.walkthrough-target{position:relative!important;z-index:10001!important;outline:3px solid var(--gold)!important;outline-offset:5px!important;box-shadow:0 0 0 9px color-mix(in srgb,var(--gold) 26%,transparent)!important}
+.walkthrough-target{outline:3px solid var(--gold)!important;outline-offset:5px!important;box-shadow:0 0 0 9px color-mix(in srgb,var(--gold) 26%,transparent)!important}
 @media(max-width:760px){.tutorial-launch-card{align-items:stretch;flex-direction:column}.tutorial-start-button{width:100%}.guided-walkthrough__card{width:calc(100vw - 1rem);max-height:44dvh}}
 @media(prefers-reduced-motion:reduce){.guided-walkthrough__spotlight{transition:none}}
