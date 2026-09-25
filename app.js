@@ -38,8 +38,8 @@ let businessProfile=loadBusinessProfile();
 let pendingBusinessLogo=businessProfile.logo;
 const TUTORIAL_SESSION_KEY='sturdy_pancake_tutorial_session';
 const previewHelpers={
-  persistRememberedEmail(storage,email,checked){if(checked&&email)storage.setItem('sturdy_remembered_email',email);else storage.removeItem('sturdy_remembered_email')},
-  restoreRememberedEmail(storage){return storage.getItem('sturdy_remembered_email')||''}
+  persistRememberedEmail(storage=sessionStorage,email,checked){if(checked&&email)storage.setItem('sturdy_remembered_email',email);else storage.removeItem('sturdy_remembered_email')},
+  restoreRememberedEmail(storage=sessionStorage){return storage.getItem('sturdy_remembered_email')||''}
 };
 const tutorialOwner=()=>({id:'tutorial-owner',role:'owner',displayName:'Tutorial owner',tutorial:true});
 const money=cents=>new Intl.NumberFormat(preferences.language==='es'?'es-EC':'en-US',{style:'currency',currency:'USD'}).format(cents/100);
