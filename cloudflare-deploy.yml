@@ -1,0 +1,45 @@
+name: Cloudflare Worker deployment
+
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        description: "Choose the approved Cloudflare target"
+        required: true
+        type: choice
+        options:
+          - non_specific
+          - production
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cloudflare-${{ github.repository }}-${{ inputs.target }}
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment: cloudflare-${{ inputs.target }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Verify source security baseline
+        run: node scripts/verify-security.mjs index.html
+      - name: Build allowlisted Cloudflare assets
+        run: node scripts/build-cloudflare.mjs owner
+      - name: Deploy exact build to Cloudflare
+        id: deploy
+        uses: cloudflare/wrangler-action@ebbaa1584979971c8614a24965b4405ff95890e0
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: "4.135.0"
+          command: deploy --env ${{ inputs.target }}
+      - name: Verify deployed manifest and headers
+        env:
+          DEPLOYMENT_URL: ${{ steps.deploy.outputs.deployment-url || vars.CLOUDFLARE_DEPLOYMENT_URL }}
+        run: node scripts/verify-cloudflare-deployment.mjs

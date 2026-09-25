@@ -1,0 +1,25 @@
+{
+  "vatRate": 15,
+  "products": [
+    {"id":"cafe-latte","name":"Café Latte","category":"Coffee","description":"Espresso softened with silky steamed milk.","priceCents":375,"stock":15,"imageUrl":"assets/products/01-cappeto-cafe-latte.webp"},
+    {"id":"double-espresso","name":"Double Espresso","category":"Coffee","description":"Two rich shots with a deep caramel finish.","priceCents":325,"stock":12,"imageUrl":"assets/products/02-cappeto-double-espresso.webp"},
+    {"id":"iced-cappuccino","name":"Iced Cappuccino","category":"Coffee","description":"Chilled espresso, cold milk and a cloud of foam.","priceCents":425,"stock":14,"imageUrl":"assets/products/03-cappeto-iced-cappuccino.webp"},
+    {"id":"cafe-mocha","name":"Café Mocha","category":"Coffee","description":"Espresso and chocolate finished with steamed milk.","priceCents":450,"stock":13,"imageUrl":"assets/products/04-cappeto-cafe-mocha.webp"},
+    {"id":"caramel-macchiato","name":"Caramel Macchiato","category":"Coffee","description":"Vanilla milk, espresso and a delicate caramel finish.","priceCents":475,"stock":12,"imageUrl":"assets/products/05-cappeto-caramel-macchiato.webp"},
+    {"id":"cola-lime","name":"Cola & Lime","category":"Soft drinks","description":"Sparkling cola served cold with fresh lime.","priceCents":250,"stock":24,"imageUrl":"assets/products/06-cappeto-cola-lime.webp"},
+    {"id":"citrus-mint-soda","name":"Citrus Mint Soda","category":"Soft drinks","description":"Bright citrus bubbles lifted with garden mint.","priceCents":295,"stock":18,"imageUrl":"assets/products/07-cappeto-citrus-mint-soda.webp"},
+    {"id":"berry-rosemary-soda","name":"Berry Rosemary Soda","category":"Soft drinks","description":"Mixed berries, sparkling water and rosemary aroma.","priceCents":325,"stock":16,"imageUrl":"assets/products/08-cappeto-berry-rosemary-soda.webp"},
+    {"id":"fresh-orange-juice","name":"Fresh Orange Juice","category":"Juices","description":"Freshly squeezed oranges served naturally chilled.","priceCents":350,"stock":15,"imageUrl":"assets/products/09-cappeto-fresh-orange-juice.webp"},
+    {"id":"mango-passion-juice","name":"Mango Passion Juice","category":"Juices","description":"Ripe mango blended with bright passion fruit.","priceCents":395,"stock":14,"imageUrl":"assets/products/10-cappeto-mango-passion-juice.webp"},
+    {"id":"strawberry-watermelon-juice","name":"Strawberry Watermelon Juice","category":"Juices","description":"Refreshing watermelon blended with ripe strawberries.","priceCents":395,"stock":14,"imageUrl":"assets/products/11-cappeto-strawberry-watermelon-juice.webp"},
+    {"id":"butter-croissant","name":"Butter Croissant","category":"Bakery","description":"Flaky, golden layers with a rich butter aroma.","priceCents":295,"stock":10,"imageUrl":"assets/products/12-cappeto-butter-croissant.webp"},
+    {"id":"cinnamon-roll","name":"Cinnamon Roll","category":"Bakery","description":"Soft swirls of cinnamon finished with light glaze.","priceCents":325,"stock":10,"imageUrl":"assets/products/13-cappeto-cinnamon-roll.webp"},
+    {"id":"banana-walnut-bread","name":"Banana Walnut Bread","category":"Bakery","description":"Moist banana loaf with toasted walnut pieces.","priceCents":350,"stock":9,"imageUrl":"assets/products/14-cappeto-banana-walnut-bread.webp"},
+    {"id":"chicken-avocado-wrap","name":"Chicken Avocado Wrap","category":"Wraps","description":"Seasoned chicken, creamy avocado and crisp greens.","priceCents":695,"stock":8,"imageUrl":"assets/products/15-cappeto-chicken-avocado-wrap.webp"},
+    {"id":"roasted-vegetable-wrap","name":"Roasted Vegetable Wrap","category":"Wraps","description":"Roasted vegetables, fresh greens and savory dressing.","priceCents":625,"stock":8,"imageUrl":"assets/products/16-cappeto-roasted-vegetable-wrap.webp"},
+    {"id":"chicken-pesto-ciabatta","name":"Chicken Pesto Ciabatta","category":"Sandwiches","description":"Grilled chicken, basil pesto and tomato on ciabatta.","priceCents":725,"stock":7,"imageUrl":"assets/products/17-cappeto-chicken-pesto-ciabatta.webp"},
+    {"id":"turkey-avocado-club","name":"Turkey Avocado Club","category":"Sandwiches","description":"Turkey, avocado and crisp vegetables in a layered club.","priceCents":750,"stock":7,"imageUrl":"assets/products/18-cappeto-turkey-avocado-club.webp"},
+    {"id":"gourmet-cheeseburger","name":"Gourmet Cheeseburger","category":"Hot food","description":"Beef, melted cheese and fresh toppings on a toasted bun.","priceCents":895,"stock":8,"imageUrl":"assets/products/19-cappeto-gourmet-cheeseburger.webp"},
+    {"id":"gourmet-hot-dog","name":"Gourmet Hot Dog","category":"Hot food","description":"Grilled sausage with signature toppings in a soft bun.","priceCents":695,"stock":9,"imageUrl":"assets/products/20-cappeto-gourmet-hot-dog.webp"}
+  ]
+}

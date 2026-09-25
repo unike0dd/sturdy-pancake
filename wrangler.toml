@@ -1,0 +1,23 @@
+name = "cappeto-owner"
+main = "cloudflare/worker.js"
+compatibility_date = "2026-09-18"
+workers_dev = true
+preview_urls = false
+
+[assets]
+directory = "./dist"
+binding = "ASSETS"
+run_worker_first = true
+html_handling = "auto-trailing-slash"
+not_found_handling = "404-page"
+
+[env.non_specific]
+name = "cappeto-owner-non-specific"
+workers_dev = true
+preview_urls = false
+
+[env.production]
+name = "cappeto-owner-production"
+workers_dev = false
+preview_urls = false
+# Add the approved production custom-domain route only after the launch and billing gates.

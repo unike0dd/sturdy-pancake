@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: blob:; connect-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f4f6f0">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="A bilingual menu, inventory, ordering, and reporting workspace for small and medium restaurants, cafés, and independent food sellers.">
+  <meta name="application-name" content="Cappeto">
+  <meta name="author" content="Cappeto">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="es_EC">
+  <meta property="og:site_name" content="Cappeto">
+  <meta property="og:title" content="Cappeto · Menu and inventory workspace">
+  <meta property="og:description" content="Manage products, inventory, orders, and reports for a restaurant, café, or independent food business.">
+  <meta property="og:url" content="https://unike0dd.github.io/cappeto/">
+  <meta property="og:image" content="https://unike0dd.github.io/cappeto/assets/products/01-cappeto-cafe-latte.webp">
+  <meta property="og:image:alt" content="Cappeto café latte">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Cappeto · Menu and inventory workspace">
+  <meta name="twitter:description" content="A bilingual workspace for restaurants, cafés, and independent food sellers.">
+  <meta name="twitter:image" content="https://unike0dd.github.io/cappeto/assets/products/01-cappeto-cafe-latte.webp">
+  <link rel="canonical" href="https://unike0dd.github.io/cappeto/">
+  <title>Cappeto · Menu and inventory workspace</title>
+  <link rel="stylesheet" href="styles.css?v=owner-preview-removal-2026-09-24">
+  <script src="i18n/translations.js?v=preview-session-2026-09-21-fix1" defer></script>
+  <script src="preview-session.js?v=preview-session-2026-09-21-fix1" defer></script>
+  <script src="app.js?v=owner-preview-removal-2026-09-24" defer></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Cappeto","url":"https://unike0dd.github.io/cappeto/","applicationCategory":"BusinessApplication","operatingSystem":"Any","inLanguage":["en","es"],"audience":{"@type":"Audience","audienceType":"Small and medium restaurants, cafés, and independent food sellers"},"description":"A bilingual menu, inventory, ordering, and reporting workspace designed to support keyboard navigation, screen readers, responsive layouts, and enlarged views."}</script>
+</head>
+<body>
+  <a class="skip-link" id="skipLink" href="#landingMain">Skip to main content</a>
+  <section class="landing" id="landingView" aria-labelledby="landingTitle">
+    <header class="landing-header">
+      <a class="landing-brand" href="#" aria-label="Cappeto home"><span>C</span><strong>Cappeto</strong></a>
+      <nav class="landing-actions" aria-label="Primary navigation">
+        <div class="preference-buttons"><button class="preference-button" data-language-toggle type="button">EN</button><button class="preference-button" data-theme-toggle type="button">Light</button></div>
+        <button class="text-button landing-signin" id="openSignIn" data-i18n="signIn" type="button">Sign in</button>
+        <button class="button landing-signup" id="openSignUp" data-i18n="createAccount" type="button">Create account</button>
+        <button class="site-menu-button" data-site-menu-toggle data-i18n-aria="openNavigation" type="button" aria-controls="siteMenu" aria-expanded="false" aria-label="Open navigation menu"><span></span><span></span><span></span></button>
+      </nav>
+    </header>
+    <main class="landing-main" id="landingMain">
+      <div class="landing-copy">
+        <p class="eyebrow" data-i18n="landingEyebrow">A simpler food-business workspace</p>
+        <h1 id="landingTitle" data-i18n="landingTitle" tabindex="-1">Your products, inventory, and customers—together.</h1>
+        <p class="landing-lead" data-i18n="landingLead">Cappeto helps restaurants, cafés, and independent food sellers publish a clear menu, organize stock, and serve customers from one focused workspace.</p>
+        <div class="landing-cta"><button class="button button-primary" id="landingCreateAccount" data-i18n="getStarted" type="button">Get started</button><button class="button secondary-button" id="landingBrowse" data-i18n="browseMenu" type="button">Browse the menu</button></div>
+        <p class="landing-note" data-i18n="landingNote">Designed for owners, staff, and customers using different devices and assistive technologies.</p>
+      </div>
+      <div class="landing-showcase" aria-label="Featured Cappeto products">
+        <article class="showcase-card showcase-main"><img src="assets/products/01-cappeto-cafe-latte.webp" alt="Cappeto café latte"><div><span data-i18n="featured">Featured</span><strong>Café Latte</strong></div></article>
+        <article class="showcase-card showcase-small"><img src="assets/products/12-cappeto-butter-croissant.webp" alt="Cappeto butter croissant"><strong data-i18n="freshDaily">Fresh daily</strong></article>
+        <div class="showcase-stat"><strong>20</strong><span data-i18n="productCapacity">product spaces</span></div>
+      </div>
+    </main>
+    <section class="landing-benefits" aria-label="Cappeto benefits">
+      <article><span>01</span><h2 data-i18n="benefitMenu">Publish your menu</h2><p data-i18n="benefitMenuCopy">Present products and prices clearly to customers.</p></article>
+      <article><span>02</span><h2 data-i18n="benefitStock">Manage inventory</h2><p data-i18n="benefitStockCopy">Track stock, sales, returns, and damaged items.</p></article>
+      <article><span>03</span><h2 data-i18n="benefitBilingual">Serve bilingually</h2><p data-i18n="benefitBilingualCopy">Switch between English and Spanish instantly.</p></article>
+    </section>
+  </section>
+
+  <section class="auth hidden" id="authView" data-i18n-aria="staffSignIn" aria-label="Staff sign in">
+    <div class="auth-card">
+      <aside class="auth-value" aria-labelledby="authValueTitle">
+        <a class="auth-value-brand" href="#" data-auth-home><span>C</span><strong>Cappeto</strong></a>
+        <p class="eyebrow" data-i18n="ownerWorkspace">Owner workspace</p>
+        <h2 id="authValueTitle" data-i18n="authValueTitle">Your food business, organized in one place.</h2>
+        <ul class="auth-benefits">
+          <li><span aria-hidden="true">✓</span><div><strong data-i18n="authProducts">Products and menu</strong><small data-i18n="authProductsCopy">Publish clear products and prices.</small></div></li>
+          <li><span aria-hidden="true">✓</span><div><strong data-i18n="authInventory">Inventory and availability</strong><small data-i18n="authInventoryCopy">Keep stock status easy to understand.</small></div></li>
+          <li><span aria-hidden="true">✓</span><div><strong data-i18n="authOrders">Orders and customers</strong><small data-i18n="authOrdersCopy">Separate customer access from business controls.</small></div></li>
+          <li><span aria-hidden="true">✓</span><div><strong data-i18n="businessProfile">Business profile</strong><small data-i18n="authProfileCopy">Manage the information customers can see.</small></div></li>
+        </ul>
+      </aside>
+      <form class="auth-form" id="authForm">
+      <div class="auth-toolbar">
+        <button class="auth-back" id="authBack" type="button" data-i18n-aria="backHome" aria-label="Back to home">←</button>
+        <span class="brand-mark" aria-label="Cappeto">C</span>
+        <div class="preference-buttons">
+          <button class="preference-button" id="languageToggle" data-language-toggle type="button" aria-label="Cambiar idioma a español">EN</button>
+          <button class="preference-button" id="themeToggle" data-theme-toggle type="button" aria-label="Switch to dark theme">Light</button>
+        </div>
+        <button class="site-menu-button" data-site-menu-toggle data-i18n-aria="openNavigation" type="button" aria-controls="siteMenu" aria-expanded="false" aria-label="Open navigation menu"><span></span><span></span><span></span></button>
+      </div>
+      <p class="eyebrow auth-eyebrow" data-i18n="ownerAccess">Owner access</p>
+      <h1 id="authTitle" data-i18n="welcomeBack" tabindex="-1">Welcome back</h1>
+      <p class="auth-intro" id="authIntro" data-i18n="signInIntro">Sign in to manage your products and business profile.</p>
+      <div class="auth-tabs" role="tablist" aria-label="Account access">
+        <button class="auth-tab active" id="signInTab" type="button" role="tab" aria-selected="true" aria-controls="authFields" data-i18n="signIn">Sign in</button>
+        <button class="auth-tab" id="signUpTab" type="button" role="tab" aria-selected="false" aria-controls="authFields" data-i18n="createAccount">Create account</button>
+      </div>
+      <div class="provider-grid" aria-label="Sign-in providers">
+        <button class="provider-button" id="gmailButton" type="button"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="#4285F4" d="M21.6 12.23c0-.71-.06-1.4-.18-2.07H12v3.92h5.38a4.6 4.6 0 0 1-2 3.02v2.54h3.24c1.9-1.75 2.98-4.33 2.98-7.41Z"/><path fill="#34A853" d="M12 22c2.7 0 4.98-.9 6.63-2.36l-3.24-2.54c-.9.6-2.05.96-3.39.96-2.61 0-4.82-1.76-5.61-4.13H3.04v2.62A10 10 0 0 0 12 22Z"/><path fill="#FBBC05" d="M6.39 13.93A6 6 0 0 1 6.08 12c0-.67.12-1.32.31-1.93V7.45H3.04A10 10 0 0 0 2 12c0 1.61.39 3.14 1.04 4.55l3.35-2.62Z"/><path fill="#EA4335" d="M12 5.94c1.47 0 2.79.5 3.83 1.5l2.87-2.87A9.63 9.63 0 0 0 12 2a10 10 0 0 0-8.96 5.45l3.35 2.62C7.18 7.7 9.39 5.94 12 5.94Z"/></svg><span data-i18n="gmail">Gmail</span></button>
+        <button class="provider-button" id="appleButton" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.7 12.9c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.2-2.8.9-3.5.9-.7 0-1.8-.9-3-.8-1.5 0-3 1-3.8 2.4-1.7 2.9-.4 7.2 1.2 9.6.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.3-.8 1.5 0 2 .8 3.3.8 1.4 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8-.1 0-3.4-1.3-3.4-4Zm-2.3-6.8c.7-.9 1.2-2.1 1.1-3.3-1.1 0-2.4.7-3.2 1.6-.7.8-1.3 2-1.2 3.2 1.2.1 2.5-.6 3.3-1.5Z"/></svg><span>Apple</span></button>
+      </div>
+      <div class="auth-divider"><span data-i18n="orEmail">or use email</span></div>
+      <div id="authFields" role="tabpanel" aria-labelledby="signInTab">
+        <div class="signup-grid signup-only hidden">
+          <label class="field"><span data-i18n="businessName">Business name</span><input id="signupBusiness" type="text" autocomplete="organization" maxlength="80"></label>
+          <label class="field"><span data-i18n="ownerName">Owner’s full name</span><input id="signupOwner" type="text" autocomplete="name" maxlength="100"></label>
+        </div>
+        <label class="field email-field"><span data-i18n="emailLabel">Business email</span><input id="staffEmail" type="email" autocomplete="username" placeholder="owner@business.com" required></label>
+        <label class="field"><span id="passwordLabel" data-i18n="password">Password</span><span class="password-control"><input id="authCode" type="password" autocomplete="current-password" minlength="8" data-i18n-placeholder="passwordPlaceholder" aria-labelledby="passwordLabel" required><button class="password-toggle" id="passwordToggle" type="button" aria-controls="authCode" aria-pressed="false" data-i18n="showPassword">Show</button></span></label>
+        <p class="password-help signup-only hidden" id="passwordHelp" data-i18n="passwordRequirements">Use at least 8 characters with a number and a symbol.</p>
+        <label class="field signup-only hidden"><span data-i18n="confirmPassword">Confirm password</span><input id="confirmPassword" type="password" autocomplete="new-password" minlength="8"></label>
+        <div class="auth-options signin-only"><label class="consent"><input id="rememberMe" type="checkbox"><span data-i18n="rememberMe">Remember me</span></label><button class="text-button compact-link" id="forgotPassword" type="button" data-i18n="forgotPassword">Forgot password?</button></div>
+        <label class="consent signup-only hidden"><input id="termsConsent" type="checkbox"><span data-i18n="termsConsent">I agree to the Terms and Privacy Notice.</span></label>
+        <p class="form-message" id="authError" role="alert" aria-live="assertive"></p>
+        <button class="button button-primary button-full" id="signInButton" data-i18n="signIn" type="submit">Sign in</button>
+      </div>
+      <div class="customer-route"><span data-i18n="notManaging">Not managing a business?</span><button class="text-button" id="browseButton" data-i18n="browseMenu" type="button">Explore the customer menu</button></div>
+      </form>
+    </div>
+  </section>
+
+  <main class="app hidden" id="appView" tabindex="-1">
+    <header class="topbar">
+      <a class="wordmark" href="#catalog" data-i18n-aria="cappetoHome" aria-label="Cappeto home"><span id="businessLogoMark">C</span><strong id="businessWordmark">Cappeto</strong></a>
+      <nav class="view-switcher" data-i18n-aria="workspace" aria-label="Workspace">
+        <button class="nav-button active" id="menuNav" data-i18n="menu" data-view="catalog" aria-current="page" type="button">Menu</button>
+        <button class="nav-button staff-only hidden" id="tutorialNav" data-i18n="tutorialMenu" data-view="tutorial" type="button">Tutorial</button>
+        <button class="nav-button staff-only hidden" id="manageNav" data-i18n="manage" data-view="manage" type="button">Manage products</button>
+      </nav>
+      <div class="top-actions">
+        <div class="preference-buttons customer-preferences"><button class="preference-button" data-language-toggle type="button" aria-label="Cambiar idioma a español">EN</button><button class="preference-button" data-theme-toggle type="button" aria-label="Switch to dark theme">Light</button></div>
+        <span class="session-label" id="sessionLabel">Customer view</span><button class="owner-profile-button staff-only hidden" id="ownerSettingsButton" data-i18n="ownerProfile" type="button">Cappeto owner</button>
+        <button class="icon-button staff-only hidden" id="logoutButton" data-i18n-aria="signOut" type="button" aria-label="Sign out" title="Sign out">↗</button>
+        <button class="cart-button" id="cartButton" data-i18n-aria="openOrder" type="button" aria-label="Open order"><span id="orderButtonLabel" data-i18n="order">Order</span><b id="cartCount">0</b></button>
+        <button class="site-menu-button" data-site-menu-toggle data-i18n-aria="openNavigation" type="button" aria-controls="siteMenu" aria-expanded="false" aria-label="Open navigation menu"><span></span><span></span><span></span></button>
+      </div>
+    </header>
+
+    <section class="catalog-view" id="catalogView" aria-labelledby="catalogTitle">
+      <div class="intro-row">
+        <div><p class="eyebrow" id="catalogEyebrow" data-i18n="fresh">Freshly prepared</p><h1 id="catalogTitle" data-i18n="title">Simple café pleasures.</h1><p id="catalogDescription" data-i18n="description">Choose a favorite, set the quantity, and review the order.</p></div>
+        <label class="search"><span aria-hidden="true">⌕</span><input id="searchInput" type="search" data-i18n-placeholder="search" data-i18n-aria="search" placeholder="Search the menu" aria-label="Search the menu"></label>
+      </div>
+      <div class="category-row" id="categoryRow" data-i18n-aria="productCategories" aria-label="Product categories"></div>
+      <div class="carousel-shell" data-i18n-aria="productCarousel" aria-label="Product carousel">
+        <button class="carousel-arrow carousel-previous" id="previousProduct" data-i18n-aria="previousProducts" type="button" aria-label="Previous products"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 5 8 12l7 7"/></svg></button>
+        <div class="product-grid" id="productGrid" aria-live="polite" tabindex="0"></div>
+        <button class="carousel-arrow carousel-next" id="nextProduct" data-i18n-aria="nextProducts" type="button" aria-label="Next products"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 5 7 7-7 7"/></svg></button>
+      </div>
+      <div class="carousel-status"><span id="carouselPosition">1 / 1</span><span id="carouselHint" data-i18n="carousel">Swipe or use the arrows</span></div>
+    </section>
+
+    <section class="manage-view hidden" id="manageView" aria-labelledby="manageTitle">
+      <div class="manage-heading"><div><p class="eyebrow" data-i18n="ownerWorkspace">Owner workspace</p><h1 id="manageTitle" data-i18n="productLibrary">Product library</h1><p data-i18n="managerIntro">Publish up to 20 products. Images are optimized to WebP before upload.</p></div><span class="capacity" id="capacityLabel">0 / 20</span></div>
+      <p class="limit-message hidden" id="capacityMessage" data-i18n="capacity" role="status">The 20-product limit has been reached. Delete a product before adding a new one. Existing products can still be edited.</p>
+      <details class="library-disclosure product-entry-section" id="productEntrySection">
+        <summary><span data-i18n="productEntrySection">Product image, costs, and details</span></summary>
+        <div class="library-disclosure-content">
+      <form class="product-form" id="productForm">
+        <div class="upload-column">
+          <label class="file-button"><span data-i18n="choosePicture">Choose picture</span><input id="productImage" type="file" accept="image/jpeg,image/png,image/webp"></label>
+          <div class="upload-preview" id="uploadPreview"><span data-i18n="productImage">Product image</span><small data-i18n="uploadHelp">Upload JPG, PNG, or WebP. Converted to optimized WebP.</small></div>
+        </div>
+        <div class="product-entry-fields">
+          <div class="form-grid product-basics">
+            <label class="field"><span data-i18n="productName">Product name</span><input id="productName" maxlength="80" required placeholder="Cinnamon cappuccino"></label>
+            <label class="field"><span data-i18n="category">Category</span><input id="productCategory" maxlength="40" required placeholder="Coffee"></label>
+            <label class="field"><span data-i18n="quantity">Quantity</span><input id="productStock" type="number" min="0" max="9999" step="1" required placeholder="20"></label>
+            <label class="field"><span data-i18n="purchaseDate">Purchase date</span><input id="productPurchaseDate" type="date" required></label>
+          </div>
+          <details class="pricing-disclosure purchase-disclosure" open>
+            <summary data-i18n="yourPurchaseCost">Your Purchase Cost</summary>
+            <div class="pricing-disclosure-content">
+              <p class="pricing-help" data-i18n="purchaseOptional">Optional procurement details entered by the business owner.</p>
+              <div class="form-grid purchase-fields">
+                <label class="field"><span data-i18n="procurementCost">Unit purchase cost (USD)</span><input id="productProcurementCost" type="number" min="0" max="9999" step="0.01" placeholder="2.00"></label>
+                <label class="field"><span data-i18n="purchaseTaxRate">Purchase tax (%)</span><input id="productPurchaseTax" type="number" min="0" max="100" step="0.01" placeholder="15"></label>
+                <label class="field"><span data-i18n="purchaseDeliveryCost">Purchase delivery cost (USD)</span><input id="productPurchaseDelivery" type="number" min="0" max="9999" step="0.01" placeholder="0.00"></label>
+              </div>
+              <div class="purchase-totals" aria-live="polite">
+                <label><span data-i18n="purchaseSubtotal">Subtotal</span><output id="purchaseSubtotal">$0.00</output></label>
+                <label><span data-i18n="purchaseTaxAmount">Tax</span><output id="purchaseTaxAmount">$0.00</output></label>
+                <label><span data-i18n="purchaseTotal">Total</span><output id="purchaseTotal">$0.00</output></label>
+              </div>
+            </div>
+          </details>
+          <details class="pricing-disclosure selling-disclosure" open>
+            <summary data-i18n="yourSellingPrice">Your Selling Price</summary>
+            <div class="pricing-disclosure-content">
+              <p class="pricing-help" data-i18n="sellingPrompt">How much do you want to sell your product for?</p>
+              <div class="form-grid selling-fields">
+                <label class="field"><span data-i18n="price">Selling price (USD)</span><input id="productPrice" type="number" min="0.01" max="9999" step="0.01" required placeholder="4.50"></label>
+                <label class="field"><span data-i18n="vat">Sales VAT (%)</span><input id="productVat" type="number" min="0" max="100" step="0.01" value="15" required></label>
+              </div>
+            </div>
+          </details>
+          <label class="field description-field"><span data-i18n="shortDescription">Short description</span><textarea id="productDescription" maxlength="140" required placeholder="Espresso, steamed milk and cinnamon"></textarea></label>
+          <p class="form-message" id="productMessage" role="status"></p>
+          <div class="product-edit-actions" aria-label="Product editing actions">
+            <button class="remove-picture-button" id="removePictureButton" data-i18n="removePicture" type="button">Remove Picture</button>
+            <button class="update-item-button" id="updateItemButton" data-i18n="updateItem" type="submit">Update Item</button>
+          </div>
+        </div>
+        <aside class="product-live-preview" aria-labelledby="previewTitle">
+          <div class="preview-header"><p class="preview-label" id="previewTitle" data-i18n="customerPreview">Customer preview</p><button class="clear-product-button" id="clearProductButton" data-i18n="clearFields" type="button">Clear fields</button></div>
+          <div class="preview-picture" id="previewPicture"><span data-i18n="productImage">Product image</span></div>
+          <dl class="preview-details">
+            <div><dt data-i18n="product">Product</dt><dd id="previewName">Product name</dd></div><div><dt data-i18n="category">Category</dt><dd id="previewCategory">Category</dd></div>
+            <div><dt data-i18n="price">Price</dt><dd id="previewPrice">$0.00</dd></div><div><dt data-i18n="vat">VAT</dt><dd id="previewVat">15%</dd></div>
+            <div><dt data-i18n="availableLabel">Available</dt><dd id="previewStock">0</dd></div><div><dt data-i18n="purchased">Purchased</dt><dd id="previewDate">Not selected</dd></div>
+            <div class="preview-description"><dt data-i18n="descriptionLabel">Description</dt><dd id="previewDescription">Short product description</dd></div>
+          </dl>
+          <button class="button preview-publish hidden" id="productSubmitButton" data-i18n="publishProduct" type="submit">Publish product</button>
+        </aside>
+      </form>
+        </div>
+      </details>
+
+      <details class="library-disclosure finance-menu-section" id="financeMenuSection">
+        <summary><span data-i18n="horizontalMenuSection">Horizontal financial menu</span></summary>
+        <div class="library-disclosure-content finance-menu-content">
+        <nav class="finance-tabs" data-i18n-aria="financeWorkspace" aria-label="Inventory and financial workspace" role="tablist">
+          <button class="finance-tab active" type="button" role="tab" aria-selected="true" aria-controls="financeInventory" data-finance-tab="inventory" data-i18n="inventoryProducts">Inventory</button>
+          <button class="finance-tab" type="button" role="tab" aria-selected="false" aria-controls="financeSales" data-finance-tab="sales" data-i18n="summarySales">Sales</button>
+          <button class="finance-tab" type="button" role="tab" aria-selected="false" aria-controls="financeTaxes" data-finance-tab="taxes" data-i18n="summaryTaxes">Taxes</button>
+          <button class="finance-tab" type="button" role="tab" aria-selected="false" aria-controls="financeGross" data-finance-tab="gross" data-i18n="grossProfit">Gross Profit</button>
+          <button class="finance-tab" type="button" role="tab" aria-selected="false" aria-controls="financeNet" data-finance-tab="net" data-i18n="netProductProfit">Net Product Profit</button>
+          <button class="finance-tab" type="button" role="tab" aria-selected="false" aria-controls="financeSummary" data-finance-tab="summary" data-i18n="accountingSummary">Summary</button>
+        </nav>
+        <section class="finance-panel hidden" id="financeSales" role="tabpanel" data-finance-panel="sales">
+          <article class="finance-calculation-card"><p class="eyebrow" data-i18n="salesRevenue">Sales revenue</p><strong class="finance-total" id="salesValue">$0.00</strong><p data-i18n="salesFormula">Sold quantity × selling price, before sales tax.</p></article>
+        </section>
+
+        <section class="finance-panel hidden" id="financeTaxes" role="tabpanel" data-finance-panel="taxes">
+          <article class="finance-calculation-card tax-card"><p class="eyebrow"><span data-i18n="taxCollected">Taxes collected</span> <button class="tax-disclosure-button" type="button" aria-expanded="false" aria-controls="taxDisclosure">?</button></p><strong class="finance-total tax-amount" id="taxesValue">$0.00</strong><p class="tax-disclosure hidden" id="taxDisclosure" data-i18n="paidToGovernment">Paid to Government</p></article>
+        </section>
+
+        <section class="finance-panel hidden" id="financeGross" role="tabpanel" data-finance-panel="gross">
+          <article class="finance-calculation-card"><p class="eyebrow" data-i18n="grossProfit">Gross Profit</p><strong class="finance-total" id="grossValue">$0.00</strong><p data-i18n="grossProfitFormula">Sales revenue − cost of goods sold.</p><div class="finance-breakdown"><span data-i18n="costOfGoodsSold">Cost of goods sold</span><strong id="cogsValue">$0.00</strong></div></article>
+        </section>
+
+        <section class="finance-panel hidden" id="financeNet" role="tabpanel" data-finance-panel="net">
+          <article class="finance-calculation-card"><p class="eyebrow" data-i18n="netProductProfit">Net Product Profit</p><strong class="finance-total" id="netValue">$0.00</strong><div class="finance-breakdown"><span data-i18n="damagedProductCost">Damaged product cost</span><strong id="damagedValue">$0.00</strong></div></article>
+        </section>
+
+        <section class="finance-panel hidden" id="financeSummary" role="tabpanel" data-finance-panel="summary">
+          <div class="finance-summary-top"><div class="finance-summary-heading"><h2 data-i18n="inventorySummaryTitle">Inventory Summary</h2><p data-i18n="inventorySummaryIntro">Purchases, available inventory, sales, taxes, damaged products, returns, and totals in one view.</p></div><div class="summary-report-tools"><label><span data-i18n="oneDaySnapshot">1-day snapshot</span><input id="summaryReportDate" type="date"></label><button class="summary-download-icon" id="downloadDaySummary" data-i18n-aria="downloadSelectedDay" type="button" aria-label="Download selected day"><span aria-hidden="true">⇩</span></button><button class="summary-download-button" id="downloadTenDaySummary" data-i18n-aria="downloadTenDayCsv" type="button" aria-label="Download 10-day CSV report"><span aria-hidden="true">⇩</span><span data-i18n="tenDayReport">10-day report</span></button></div></div>
+          <p class="summary-snapshot-note" data-i18n="snapshotMvpNote">Freemium MVP: reports contain saved daily snapshots. Days without a saved snapshot remain blank.</p>
+          <div class="finance-table-wrap" tabindex="0" data-i18n-aria="scrollSummaryTable" aria-label="Scrollable inventory summary table"><table class="finance-summary-table inventory-summary-table"><thead><tr class="summary-group-row"><th class="purchase-group" colspan="5" data-i18n="purchasedProducts">Purchased products</th><th class="sales-group" colspan="6" data-i18n="productsForSale">Products for sale</th><th class="damage-group" colspan="4" data-i18n="damageAndReturns">Damaged products and returns</th><th class="totals-group" colspan="5" data-i18n="summaryTotals">Totals</th></tr><tr>
+            <th><span data-i18n="purchasedUnits">Products purchased</span><small data-i18n="purchasedUnitsFormula">Total units entered when products were purchased</small></th>
+            <th><span data-i18n="purchasePayment">Total product purchase payment</span><small data-i18n="purchasePaymentFormula">Product cost + purchase tax + delivery</small></th>
+            <th><span data-i18n="purchaseVatPaid">Purchase tax paid</span><small data-i18n="purchaseVatPaidFormula">Purchase subtotal × purchase tax rate</small></th>
+            <th><span data-i18n="purchaseDeliveryPaid">Purchase delivery paid</span><small data-i18n="purchaseDeliveryFormula">Delivery entered for each purchase</small></th>
+            <th><span data-i18n="unitCostBeforeTax">Unit cost before tax</span><small data-i18n="unitCostFormula">Purchase subtotal ÷ purchased units</small></th>
+            <th><span data-i18n="availableInventoryValue">Available inventory value</span><small data-i18n="availableInventoryFormula">Available quantity × full unit purchase cost</small></th>
+            <th><span data-i18n="averageSalePerUnit">Average selling price per unit</span><small data-i18n="averageSaleFormula">Sales before tax ÷ units sold</small></th>
+            <th><span data-i18n="salesTaxPerUnit">Sales tax per unit</span><small data-i18n="salesTaxPerUnitFormula">Sales tax collected ÷ units sold</small></th>
+            <th><span data-i18n="salesBeforeTax">Sales before tax</span><small data-i18n="salesBeforeTaxFormula">Units sold × selling price</small></th>
+            <th><span data-i18n="salesTaxCollected">Sales tax collected</span><small data-i18n="salesTaxCollectedFormula">Sales before tax × sales tax rate</small></th>
+            <th><span data-i18n="customerPayments">Total paid by customers</span><small data-i18n="customerPaymentsFormula">Sales before tax + sales tax collected</small></th>
+            <th><span data-i18n="returnedUnits">Returned products</span><small data-i18n="returnedUnitsFormula">Total units recorded as returns</small></th>
+            <th><span data-i18n="returnedInventoryValue">Value returned to inventory</span><small data-i18n="returnedInventoryValueFormula">Returned quantity × full unit purchase cost</small></th>
+            <th><span data-i18n="damagedCostBeforeTax">Damaged-product cost before tax</span><small data-i18n="damagedCostBeforeTaxFormula">Damaged quantity × unit purchase cost before tax</small></th>
+            <th><span data-i18n="damagedPurchaseTax">Purchase tax on damaged products</span><small data-i18n="damagedPurchaseTaxFormula">Damaged cost × purchase tax rate</small></th>
+            <th><span data-i18n="salesLessDamage">Sales less damaged-product cost</span><small data-i18n="salesLessDamageFormula">Sales before tax − damaged cost before tax</small></th>
+            <th><span data-i18n="estimatedTaxBalance">Estimated tax balance</span><small data-i18n="estimatedTaxBalanceFormula">Sales tax collected − purchase tax on damaged products</small></th>
+            <th><span data-i18n="totalCollectedBeforeTax">Total collected before sales tax</span><small data-i18n="totalCollectedBeforeTaxFormula">Sales before sales tax</small></th>
+            <th><span data-i18n="totalSalesTax">Total sales tax collected</span><small data-i18n="totalSalesTaxFormula">Sales tax collected from customers</small></th>
+            <th><span data-i18n="grandCustomerTotal">Total</span><small data-i18n="grandCustomerTotalFormula">Sales before tax + sales tax</small></th>
+          </tr></thead><tbody><tr>
+            <td id="summaryPurchasedUnits">0</td><td id="summaryPurchasePayment">$0.00</td><td id="summaryPurchaseVat">$0.00</td><td id="summaryPurchaseDelivery">$0.00</td><td id="summaryUnitCost">—</td><td id="inventorySummaryValue">$0.00</td><td id="summaryAverageSale">—</td><td id="summarySalesTaxUnit">—</td><td id="salesSummaryValue">$0.00</td><td id="taxesSummaryValue">$0.00</td><td id="customerCollectedValue">$0.00</td><td id="summaryReturnedUnits">0</td><td id="summaryReturnedValue">$0.00</td><td id="summaryDamagedBase">$0.00</td><td id="summaryDamagedTax">$0.00</td><td id="summarySalesLessDamage">$0.00</td><td id="summaryTaxBalance">$0.00</td><td id="summaryCollectedBeforeTax">$0.00</td><td id="summaryTotalSalesTax">$0.00</td><td id="summaryGrandTotal">$0.00</td>
+          </tr></tbody></table></div>
+        </section>
+        </div>
+      </details>
+
+      <details class="library-disclosure inventory-goods-section" id="inventoryGoodsSection">
+        <summary><span data-i18n="inventoryGoods">Inventory goods for sale</span></summary>
+        <div class="library-disclosure-content">
+      <label class="inventory-search search"><span aria-hidden="true">⌕</span><input id="manageSearch" type="search" data-i18n-placeholder="inventorySearch" data-i18n-aria="inventorySearch" placeholder="Search inventory by product or category" aria-label="Search inventory by product or category"></label>
+        <section class="finance-panel" id="financeInventory" role="tabpanel" data-finance-panel="inventory">
+          <div class="finance-panel-heading"><div><h2 data-i18n="inventoryGoods">Inventory goods for sale</h2><p data-i18n="inventoryExplanation">Products procured by the business and currently available to sell.</p></div><div class="inventory-heading-actions"><button class="inventory-reset-button" id="resetInventoryButton" type="button" data-i18n="resetInventory">RESET</button><span class="finance-value-pair"><strong class="finance-value" id="inventoryUnits">0 units</strong><strong class="finance-value" id="inventoryValue">$0.00</strong></span></div></div>
+          <div class="manage-list" id="manageList"></div>
+        </section>
+        </div>
+      </details>
+    </section>
+
+    <section class="settings-view hidden" id="settingsView" aria-labelledby="settingsTitle">
+      <div class="settings-heading">
+        <div><p class="eyebrow" data-i18n="ownerWorkspace">Owner workspace</p><h1 id="settingsTitle" data-i18n="businessProfile">Business profile</h1><p data-i18n="businessProfileIntro">Manage the business information shown across Cappeto.</p></div>
+      </div>
+      <form class="business-profile-form" id="businessProfileForm">
+        <div class="business-logo-card">
+          <div class="business-logo-preview" id="businessLogoPreview" aria-hidden="true"><span>C</span></div>
+          <label class="file-button business-logo-button"><span data-i18n="chooseLogo">Choose logo</span><input id="businessLogo" type="file" accept="image/jpeg,image/png,image/webp"></label>
+          <small data-i18n="logoHelp">Upload JPG, PNG, or WebP. A square image works best.</small>
+        </div>
+        <div class="business-fields">
+          <label class="field"><span data-i18n="businessName">Business name</span><input id="businessName" maxlength="80" autocomplete="organization" required></label>
+          <label class="field business-address"><span data-i18n="address">Address</span><textarea id="businessAddress" maxlength="160" autocomplete="street-address" required></textarea></label>
+          <label class="field"><span data-i18n="phone">Phone</span><input id="businessPhone" type="tel" maxlength="30" autocomplete="tel" required></label>
+          <label class="field"><span data-i18n="email">Email</span><input id="businessEmail" type="email" maxlength="120" autocomplete="email" required></label>
+          <label class="field"><span data-i18n="currency">Currency</span><select id="businessCurrency" required><option value="USD">USD — US Dollar</option><option value="EUR">EUR — Euro</option><option value="GBP">GBP — British Pound</option><option value="COP">COP — Colombian Peso</option><option value="CLP">CLP — Chilean Peso</option><option value="MXN">MXN — Mexican Peso</option></select></label>
+          <p class="form-message business-profile-message" id="businessProfileMessage" role="status"></p>
+          <button class="button button-primary save-business-button" data-i18n="saveSettings" type="submit">Save settings</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="tutorial-view hidden" id="tutorialView" aria-labelledby="tutorialTitle">
+      <header class="tutorial-hero"><p class="eyebrow" data-i18n="tutorialEyebrow">Cappeto guide</p><h1 id="tutorialTitle" data-i18n="tutorialTitle" tabindex="-1">How to use Cappeto</h1><p data-i18n="tutorialIntro">Follow these short steps to browse, sell, manage inventory, and understand your reports.</p></header>
+      <nav class="tutorial-jumps" data-i18n-aria="tutorialSections" aria-label="Tutorial sections"><a href="#tutorialCustomer" data-i18n="tutorialCustomerLink">Customer</a><a href="#tutorialOwner" data-i18n="tutorialOwnerLink">Business owner</a><a href="#tutorialReports" data-i18n="tutorialReportsLink">Reports</a></nav>
+      <div class="tutorial-grid">
+        <article class="tutorial-card" id="tutorialCustomer"><span class="tutorial-number">01</span><h2 data-i18n="tutorialCustomerTitle">Browse and prepare an order</h2><ol><li data-i18n="tutorialCustomerStep1">Use Search or a category to find a product.</li><li data-i18n="tutorialCustomerStep2">Select Add to place a product in Pedido/Order.</li><li data-i18n="tutorialCustomerStep3">Open Pedido/Order, adjust quantities, review tax and total, then place the order.</li></ol></article>
+        <article class="tutorial-card owner-tutorial-card" id="tutorialOwner"><span class="tutorial-number">02</span><h2 data-i18n="tutorialOwnerTitle">Manage products and inventory</h2><ol><li data-i18n="tutorialOwnerStep1">Sign in as the business owner and open Manage products.</li><li data-i18n="tutorialOwnerStep2">Add the picture, purchase cost, selling price, tax, quantity, date, and description.</li><li data-i18n="tutorialOwnerStep3">Use inventory actions to record added stock, returns, damage, or sold units.</li><li data-i18n="tutorialOwnerStep4">Use Cappeto owner to update the business name, logo, address, phone, email, and currency.</li></ol></article>
+        <article class="tutorial-card" id="tutorialReports"><span class="tutorial-number">03</span><h2 data-i18n="tutorialReportsTitle">Read and download reports</h2><ol><li data-i18n="tutorialReportsStep1">Open Manage products, then Horizontal financial menu and Summary.</li><li data-i18n="tutorialReportsStep2">Review Purchases, Sales, Damaged Goods & Returns, Taxes, and Totals separately.</li><li data-i18n="tutorialReportsStep3">Choose a date and download the one-day snapshot or the 10-day CSV report.</li></ol></article>
+      </div>
+    </section>
+  </main>
+
+  <div class="site-menu-scrim" id="siteMenuScrim" hidden></div>
+  <aside class="site-menu" id="siteMenu" data-i18n-aria="mainNavigation" aria-label="Main navigation" aria-hidden="true">
+    <div class="site-menu-heading"><strong>Cappeto</strong><button class="site-menu-close" id="siteMenuClose" data-i18n-aria="closeNavigation" type="button" aria-label="Close navigation menu">×</button></div>
+    <nav>
+      <button type="button" data-site-route="home" data-i18n="home">Home</button>
+      <button type="button" data-site-route="catalog" data-i18n="menu">Menu</button>
+      <button class="staff-only hidden" type="button" data-site-route="tutorial" data-i18n="tutorialMenu">Tutorial</button>
+      <button class="staff-only hidden" type="button" data-site-route="manage" data-i18n="manage">Manage products</button>
+      <button class="staff-only hidden" type="button" data-site-route="settings" data-i18n="ownerProfile">Cappeto owner</button>
+      <button class="staff-only hidden" type="button" data-site-route="logout" data-i18n="signOut">Sign out</button>
+      <button class="guest-only" type="button" data-site-route="signin" data-i18n="signIn">Sign in</button>
+      <button class="guest-only" type="button" data-site-route="signup" data-i18n="createAccount">Create account</button>
+    </nav>
+  </aside>
+
+  <aside class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-labelledby="cartTitle" aria-hidden="true">
+    <div class="drawer-heading"><div><p class="eyebrow" id="cartEyebrow" data-i18n="currentOrder">Current order</p><h2 id="cartTitle" data-i18n="selection">Your selection</h2></div><div class="drawer-actions"><button class="clear-order-button" id="clearOrder" data-i18n="clear" type="button">Clear</button><button class="icon-button" id="closeCart" data-i18n-aria="closeOrder" type="button" aria-label="Close order">×</button></div></div>
+    <div class="cart-lines" id="cartLines"></div>
+    <div class="totals">
+      <div><span id="subtotalLabel" data-i18n="subtotal">Subtotal</span><strong id="subtotal">$0.00</strong></div>
+      <div><span id="vatLabel">VAT</span><strong id="vat">$0.00</strong></div>
+      <div class="grand-total"><span id="totalLabel" data-i18n="total">Total</span><strong id="total">$0.00</strong></div>
+    </div>
+    <button class="button button-primary button-full" id="placeOrder" data-i18n="placeOrder" type="button">Place order</button>
+  </aside>
+  <div class="scrim" id="scrim"></div>
+  <div class="toast" id="toast" role="status"></div>
+</body>
+</html>

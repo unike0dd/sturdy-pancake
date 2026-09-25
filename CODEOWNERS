@@ -1,0 +1,11 @@
+# Default ownership
+* @unike0dd
+
+# Security-sensitive changes
+/.github/ @unike0dd
+/SECURITY.md @unike0dd
+/.well-known/security.txt @unike0dd
+/cloudflare/ @unike0dd
+/contracts/ @unike0dd
+/docs/ @unike0dd
+/scripts/ @unike0dd

@@ -1,0 +1,31 @@
+name: GitHub foundation validation
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  contracts-and-governance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Validate JSON contracts
+        run: find agent contracts -type f -name '*.json' -print0 | xargs -0 -r -n1 jq empty
+      - name: Validate OpenAPI contract
+        run: npx --yes @redocly/cli@2.12.4 lint contracts/agentic-commerce.openapi.yaml
+      - name: Validate GitHub governance and security
+        run: node scripts/verify-security.mjs index.html
+
+  edge-source:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - run: node scripts/build-cloudflare.mjs owner
+      - run: npx --yes wrangler@4.135.0 deploy --dry-run --env non_specific

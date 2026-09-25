@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 1,
+  "currency": "USD",
+  "products": [
+    {
+      "id": "cafe-latte",
+      "name": "Café Latte",
+      "imageUrl": "assets/products/01-cappeto-cafe-latte.webp",
+      "priceCents": 375
+    },
+    {
+      "id": "double-espresso",
+      "name": "Double Espresso",
+      "imageUrl": "assets/products/02-cappeto-double-espresso.webp",
+      "priceCents": 325
+    },
+    {
+      "id": "iced-cappuccino",
+      "name": "Iced Cappuccino",
+      "imageUrl": "assets/products/03-cappeto-iced-cappuccino.webp",
+      "priceCents": 425
+    },
+    {
+      "id": "cafe-mocha",
+      "name": "Café Mocha",
+      "imageUrl": "assets/products/04-cappeto-cafe-mocha.webp",
+      "priceCents": 450
+    },
+    {
+      "id": "caramel-macchiato",
+      "name": "Caramel Macchiato",
+      "imageUrl": "assets/products/05-cappeto-caramel-macchiato.webp",
+      "priceCents": 475
+    },
+    {
+      "id": "cola-lime",
+      "name": "Cola & Lime",
+      "imageUrl": "assets/products/06-cappeto-cola-lime.webp",
+      "priceCents": 250
+    },
+    {
+      "id": "citrus-mint-soda",
+      "name": "Citrus Mint Soda",
+      "imageUrl": "assets/products/07-cappeto-citrus-mint-soda.webp",
+      "priceCents": 295
+    },
+    {
+      "id": "berry-rosemary-soda",
+      "name": "Berry Rosemary Soda",
+      "imageUrl": "assets/products/08-cappeto-berry-rosemary-soda.webp",
+      "priceCents": 325
+    },
+    {
+      "id": "fresh-orange-juice",
+      "name": "Fresh Orange Juice",
+      "imageUrl": "assets/products/09-cappeto-fresh-orange-juice.webp",
+      "priceCents": 350
+    },
+    {
+      "id": "mango-passion-juice",
+      "name": "Mango Passion Juice",
+      "imageUrl": "assets/products/10-cappeto-mango-passion-juice.webp",
+      "priceCents": 395
+    },
+    {
+      "id": "strawberry-watermelon-juice",
+      "name": "Strawberry Watermelon Juice",
+      "imageUrl": "assets/products/11-cappeto-strawberry-watermelon-juice.webp",
+      "priceCents": 395
+    },
+    {
+      "id": "butter-croissant",
+      "name": "Butter Croissant",
+      "imageUrl": "assets/products/12-cappeto-butter-croissant.webp",
+      "priceCents": 295
+    },
+    {
+      "id": "cinnamon-roll",
+      "name": "Cinnamon Roll",
+      "imageUrl": "assets/products/13-cappeto-cinnamon-roll.webp",
+      "priceCents": 325
+    },
+    {
+      "id": "banana-walnut-bread",
+      "name": "Banana Walnut Bread",
+      "imageUrl": "assets/products/14-cappeto-banana-walnut-bread.webp",
+      "priceCents": 350
+    },
+    {
+      "id": "chicken-avocado-wrap",
+      "name": "Chicken Avocado Wrap",
+      "imageUrl": "assets/products/15-cappeto-chicken-avocado-wrap.webp",
+      "priceCents": 695
+    },
+    {
+      "id": "roasted-vegetable-wrap",
+      "name": "Roasted Vegetable Wrap",
+      "imageUrl": "assets/products/16-cappeto-roasted-vegetable-wrap.webp",
+      "priceCents": 625
+    },
+    {
+      "id": "chicken-pesto-ciabatta",
+      "name": "Chicken Pesto Ciabatta",
+      "imageUrl": "assets/products/17-cappeto-chicken-pesto-ciabatta.webp",
+      "priceCents": 725
+    },
+    {
+      "id": "turkey-avocado-club",
+      "name": "Turkey Avocado Club",
+      "imageUrl": "assets/products/18-cappeto-turkey-avocado-club.webp",
+      "priceCents": 750
+    },
+    {
+      "id": "gourmet-cheeseburger",
+      "name": "Gourmet Cheeseburger",
+      "imageUrl": "assets/products/19-cappeto-gourmet-cheeseburger.webp",
+      "priceCents": 895
+    },
+    {
+      "id": "gourmet-hot-dog",
+      "name": "Gourmet Hot Dog",
+      "imageUrl": "assets/products/20-cappeto-gourmet-hot-dog.webp",
+      "priceCents": 695
+    }
+  ]
+}
