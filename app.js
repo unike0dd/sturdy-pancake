@@ -443,7 +443,7 @@ api('/api/auth/session').then(async result=>{if(result.authenticated){state.staf
   });
 
   function configurePage(step){
-    setCartOpen(false);
+    openCart(false);
     if(index<=3)openSiteMenu(false);
     if(index===4||index===5)openSiteMenu(true);
     if(index===6){
