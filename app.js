@@ -414,86 +414,114 @@ api('/api/auth/session').then(async result=>{if(result.authenticated){state.staf
   if(!overlay||!startButton)return;
 
   const steps=[
-    {target:'[data-language-toggle]',title:'walkLanguageTitle',copy:'walkLanguageCopy'},
+    {target:'[data-language-toggle]',title:'walkLanguageTitle',copy:'walkLanguageCopy',view:'tutorial'},
     {target:'[data-theme-toggle]',title:'walkThemeTitle',copy:'walkThemeCopy'},
     {target:'#cartButton',title:'walkOrderTitle',copy:'walkOrderCopy'},
     {target:'[data-site-menu-toggle]',title:'walkMenuButtonTitle',copy:'walkMenuButtonCopy'},
-    {target:'#siteMenu',title:'walkNavigationTitle',copy:'walkNavigationCopy'},
-    {target:'[data-site-route="manage"]',title:'walkManageLinkTitle',copy:'walkManageLinkCopy'},
-    {target:'#manageTitle',title:'walkLibraryTitle',copy:'walkLibraryCopy'},
-    {target:'#productEntrySection > summary',title:'walkProductSectionTitle',copy:'walkProductSectionCopy'},
-    {target:'.file-button',title:'walkPictureTitle',copy:'walkPictureCopy'},
-    {target:'.product-basics',title:'walkBasicsTitle',copy:'walkBasicsCopy'},
-    {target:'.purchase-disclosure',title:'walkPurchaseTitle',copy:'walkPurchaseCopy'},
-    {target:'.selling-disclosure',title:'walkSellingTitle',copy:'walkSellingCopy'},
-    {target:'.product-live-preview',title:'walkPreviewTitle',copy:'walkPreviewCopy'},
-    {target:'#financeMenuSection > summary',title:'walkFinanceSectionTitle',copy:'walkFinanceSectionCopy'},
-    {target:'.finance-tabs',title:'walkFinanceTabsTitle',copy:'walkFinanceTabsCopy'},
-    {target:'#inventoryGoodsSection > summary',title:'walkInventorySectionTitle',copy:'walkInventorySectionCopy'},
-    {target:'.inventory-heading-actions',title:'walkInventoryActionsTitle',copy:'walkInventoryActionsCopy'}
+    {target:'#siteMenu',title:'walkNavigationTitle',copy:'walkNavigationCopy',menu:true},
+    {target:'[data-site-route="manage"]',title:'walkManageLinkTitle',copy:'walkManageLinkCopy',menu:true},
+    {target:'#manageTitle',title:'walkLibraryTitle',copy:'walkLibraryCopy',view:'manage'},
+    {target:'#productEntrySection > summary span',title:'walkProductSectionTitle',copy:'walkProductSectionCopy',view:'manage'},
+    {target:'.file-button',title:'walkPictureTitle',copy:'walkPictureCopy',section:'product'},
+    {target:'#productName',title:'walkNameTitle',copy:'walkNameCopy',section:'product'},
+    {target:'#productCategory',title:'walkCategoryTitle',copy:'walkCategoryCopy',section:'product'},
+    {target:'#productStock',title:'walkStockTitle',copy:'walkStockCopy',section:'product'},
+    {target:'#productPurchaseDate',title:'walkDateTitle',copy:'walkDateCopy',section:'product'},
+    {target:'.purchase-disclosure > summary',title:'walkPurchaseTitle',copy:'walkPurchaseCopy',section:'product'},
+    {target:'.purchase-fields',title:'walkPurchaseFieldsTitle',copy:'walkPurchaseFieldsCopy',section:'product'},
+    {target:'.purchase-totals',title:'walkPurchaseTotalsTitle',copy:'walkPurchaseTotalsCopy',section:'product'},
+    {target:'.selling-disclosure > summary',title:'walkSellingTitle',copy:'walkSellingCopy',section:'product'},
+    {target:'.selling-fields',title:'walkSellingFieldsTitle',copy:'walkSellingFieldsCopy',section:'product'},
+    {target:'#productDescription',title:'walkDescriptionTitle',copy:'walkDescriptionCopy',section:'product'},
+    {target:'.product-live-preview',title:'walkPreviewTitle',copy:'walkPreviewCopy',section:'product'},
+    {target:'#financeMenuSection > summary span',title:'walkFinanceSectionTitle',copy:'walkFinanceSectionCopy',view:'manage'},
+    {target:'.finance-tabs',title:'walkFinanceTabsTitle',copy:'walkFinanceTabsCopy',section:'finance'},
+    {target:'#inventoryGoodsSection > summary span',title:'walkInventorySectionTitle',copy:'walkInventorySectionCopy',view:'manage'},
+    {target:'.inventory-search',title:'walkInventorySearchTitle',copy:'walkInventorySearchCopy',section:'inventory'},
+    {target:'.inventory-heading-actions',title:'walkInventoryActionsTitle',copy:'walkInventoryActionsCopy',section:'inventory'}
   ];
   let active=false;
   let index=0;
   let target=null;
+  let renderToken=0;
 
   const visibleTarget=selector=>[...document.querySelectorAll(selector)].find(element=>{
     const style=getComputedStyle(element);
     const rect=element.getBoundingClientRect();
     return style.display!=='none'&&style.visibility!=='hidden'&&rect.width>0&&rect.height>0;
   });
+  const overlaps=(a,b,gap=10)=>!(a.right+gap<=b.left||a.left>=b.right+gap||a.bottom+gap<=b.top||a.top>=b.bottom+gap);
+  const clamp=(value,min,max)=>Math.min(Math.max(value,min),max);
 
   function configurePage(step){
     openCart(false);
-    if(index<=3)openSiteMenu(false);
-    if(index===4||index===5)openSiteMenu(true);
-    if(index===6){
-      openSiteMenu(false);
-      switchView('manage');
-    }
-    if(index>=7)switchView('manage');
+    openSiteMenu(Boolean(step.menu));
+    if(step.view)switchView(step.view);
+    if(index>=6)switchView('manage');
     const product=$('productEntrySection');
     const finance=$('financeMenuSection');
     const inventory=$('inventoryGoodsSection');
-    if(product)product.open=index>=8&&index<=12;
-    if(finance)finance.open=index===14;
-    if(inventory)inventory.open=index===16;
+    if(product)product.open=step.section==='product';
+    if(finance)finance.open=step.section==='finance';
+    if(inventory)inventory.open=step.section==='inventory';
   }
 
   function position(){
     if(!active||!target)return;
     const rect=target.getBoundingClientRect();
     const pad=8;
+    const margin=12;
+    const gap=18;
     const spotlight=$('walkthroughSpotlight');
     spotlight.style.left=`${Math.max(4,rect.left-pad)}px`;
     spotlight.style.top=`${Math.max(4,rect.top-pad)}px`;
-    spotlight.style.width=`${Math.min(innerWidth-8,rect.width+pad*2)}px`;
-    spotlight.style.height=`${Math.min(innerHeight-8,rect.height+pad*2)}px`;
+    spotlight.style.width=`${Math.max(0,Math.min(innerWidth-8,rect.width+pad*2))}px`;
+    spotlight.style.height=`${Math.max(0,Math.min(innerHeight-8,rect.height+pad*2))}px`;
 
     const card=$('walkthroughCard');
-    const gap=16;
     const width=card.offsetWidth;
     const height=card.offsetHeight;
-    let left=rect.right+gap;
-    if(left+width>innerWidth-8)left=rect.left-width-gap;
-    if(left<8)left=Math.max(8,Math.min(innerWidth-width-8,rect.left));
-    let top=rect.top;
-    if(top+height>innerHeight-8)top=innerHeight-height-8;
-    if(top<8)top=8;
-    if(Math.abs(left-rect.left)<20&&rect.bottom+gap+height<=innerHeight-8)top=rect.bottom+gap;
-    card.style.left=`${left}px`;
-    card.style.top=`${top}px`;
+    let chosen;
+    if(innerWidth<=700){
+      const top=rect.top>innerHeight/2?margin:innerHeight-height-margin;
+      chosen={left:clamp((innerWidth-width)/2,margin,innerWidth-width-margin),top:clamp(top,margin,innerHeight-height-margin)};
+    }else{
+      const centeredTop=clamp(rect.top+(rect.height-height)/2,margin,innerHeight-height-margin);
+      const centeredLeft=clamp(rect.left+(rect.width-width)/2,margin,innerWidth-width-margin);
+      const candidates={
+        right:{left:rect.right+gap,top:centeredTop},
+        left:{left:rect.left-width-gap,top:centeredTop},
+        below:{left:centeredLeft,top:rect.bottom+gap},
+        above:{left:centeredLeft,top:rect.top-height-gap}
+      };
+      const order=rect.width>innerWidth*.52?['below','above','right','left']:['right','left','below','above'];
+      chosen=order.map(name=>candidates[name]).find(candidate=>{
+        const box={left:candidate.left,top:candidate.top,right:candidate.left+width,bottom:candidate.top+height};
+        return box.left>=margin&&box.top>=margin&&box.right<=innerWidth-margin&&box.bottom<=innerHeight-margin&&!overlaps(box,rect);
+      });
+      if(!chosen){
+        const top=rect.top>innerHeight/2?margin:innerHeight-height-margin;
+        chosen={left:innerWidth-width-margin,top:clamp(top,margin,innerHeight-height-margin)};
+      }
+    }
+    card.style.left=`${chosen.left}px`;
+    card.style.top=`${chosen.top}px`;
   }
 
   function render(){
     if(!active)return;
+    const token=++renderToken;
+    $('walkthroughNext').disabled=true;
+    $('walkthroughBack').disabled=true;
     if(target)target.classList.remove('walkthrough-target');
     configurePage(steps[index]);
     requestAnimationFrame(()=>requestAnimationFrame(()=>{
+      if(token!==renderToken)return;
       target=visibleTarget(steps[index].target);
       if(!target){finish();return}
       target.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'center',inline:'nearest'});
       setTimeout(()=>{
-        if(!active)return;
+        if(!active||token!==renderToken)return;
         target=visibleTarget(steps[index].target);
         if(!target){finish();return}
         target.classList.add('walkthrough-target');
@@ -501,9 +529,12 @@ api('/api/auth/session').then(async result=>{if(result.authenticated){state.staf
         $('walkthroughHeading').textContent=t(steps[index].title);
         $('walkthroughCopy').textContent=t(steps[index].copy);
         $('walkthroughNext').textContent=t(index===steps.length-1?'finishWalkthrough':'continueWalkthrough');
+        $('walkthroughBack').hidden=index===0;
+        $('walkthroughBack').disabled=false;
+        $('walkthroughNext').disabled=false;
         position();
         $('walkthroughNext').focus({preventScroll:true});
-      },matchMedia('(prefers-reduced-motion: reduce)').matches?0:260);
+      },matchMedia('(prefers-reduced-motion: reduce)').matches?0:320);
     }));
   }
 
@@ -517,6 +548,7 @@ api('/api/auth/session').then(async result=>{if(result.authenticated){state.staf
 
   function finish(){
     active=false;
+    renderToken+=1;
     if(target)target.classList.remove('walkthrough-target');
     target=null;
     overlay.hidden=true;
@@ -525,10 +557,16 @@ api('/api/auth/session').then(async result=>{if(result.authenticated){state.staf
 
   startButton.addEventListener('click',start);
   $('walkthroughNext').addEventListener('click',()=>{if(index<steps.length-1){index+=1;render()}else finish()});
+  $('walkthroughBack').addEventListener('click',()=>{if(index>0){index-=1;render()}});
   $('walkthroughSkip').addEventListener('click',finish);
   $('walkthroughClose').addEventListener('click',finish);
   addEventListener('resize',position,{passive:true});
   addEventListener('scroll',position,{passive:true,capture:true});
-  document.addEventListener('keydown',event=>{if(active&&event.key==='Escape')finish()});
+  document.addEventListener('keydown',event=>{
+    if(!active)return;
+    if(event.key==='Escape')finish();
+    if(event.key==='ArrowRight'&&!$('walkthroughNext').disabled)$('walkthroughNext').click();
+    if(event.key==='ArrowLeft'&&index>0)$('walkthroughBack').click();
+  });
   document.addEventListener('click',event=>{if(active&&event.target.closest('[data-language-toggle]'))setTimeout(render,0)});
 })();
