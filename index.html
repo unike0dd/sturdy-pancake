@@ -27,9 +27,9 @@
   <meta name="twitter:image" content="https://unike0dd.github.io/sturdy-pancake/assets/products/01-cappeto-cafe-latte.webp">
   <link rel="canonical" href="https://unike0dd.github.io/sturdy-pancake/">
   <title>Cappeto · Menu and inventory workspace</title>
-  <link rel="stylesheet" href="styles.css?v=manage-products-walkthrough-2026-09-25">
-  <script src="i18n/translations.js?v=walkthrough-fix-2026-09-26" defer></script>
-  <script src="app.js?v=walkthrough-fix-2026-09-26" defer></script>
+  <link rel="stylesheet" href="styles.css?v=walkthrough-ux-2026-09-26">
+  <script src="i18n/translations.js?v=walkthrough-ux-2026-09-26" defer></script>
+  <script src="app.js?v=walkthrough-ux-2026-09-26" defer></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Cappeto","url":"https://unike0dd.github.io/sturdy-pancake/","applicationCategory":"BusinessApplication","operatingSystem":"Any","inLanguage":["en","es"],"audience":{"@type":"Audience","audienceType":"Small and medium restaurants, cafés, and independent food sellers"},"description":"A bilingual menu, inventory, ordering, and reporting workspace designed to support keyboard navigation, screen readers, responsive layouts, and enlarged views."}</script>
 </head>
 <body>
@@ -359,11 +359,12 @@
   <div class="guided-walkthrough" id="guidedWalkthrough" hidden>
     <div class="guided-walkthrough__spotlight" id="walkthroughSpotlight" aria-hidden="true"></div>
     <section class="guided-walkthrough__card" id="walkthroughCard" role="dialog" aria-modal="true" aria-labelledby="walkthroughHeading" aria-describedby="walkthroughCopy">
-      <div class="guided-walkthrough__heading"><small id="walkthroughProgress">01 / 17</small><button class="guided-walkthrough__close" id="walkthroughClose" data-i18n-aria="skipWalkthrough" type="button" aria-label="Skip walkthrough">×</button></div>
+      <div class="guided-walkthrough__heading"><small id="walkthroughProgress" aria-live="polite">01 / 25</small><button class="guided-walkthrough__close" id="walkthroughClose" data-i18n-aria="skipWalkthrough" type="button" aria-label="Skip walkthrough">×</button></div>
       <h2 id="walkthroughHeading"></h2>
       <p id="walkthroughCopy"></p>
       <div class="guided-walkthrough__actions">
-        <button id="walkthroughSkip" data-i18n="skipWalkthrough" type="button">Skip walkthrough</button>
+        <button id="walkthroughBack" data-i18n="backWalkthrough" type="button" hidden>Back</button>
+        <button id="walkthroughSkip" data-i18n="skipWalkthrough" type="button">Skip</button>
         <button id="walkthroughNext" type="button">Continue</button>
       </div>
     </section>
