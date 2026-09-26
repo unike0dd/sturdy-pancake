@@ -405,3 +405,130 @@ $('manageList').addEventListener('click',async event=>{const editId=event.target
 $('placeOrder').addEventListener('click',async()=>{const items=[...state.cart].map(([productId,quantity])=>({productId,quantity}));try{const result=await api('/api/orders',{method:'POST',body:JSON.stringify({items})});state.cart.clear();await loadCatalog();openCart(false);toast(t('orderPlaced',{id:result.orderId,total:money(result.totalCents)}))}catch(error){toast(localizeError(error))}});
 
 api('/api/auth/session').then(async result=>{if(result.authenticated){state.staff=result.user;state.csrf=result.csrfToken;showStaffControls(true);await loadCatalog();enterApp()}}).catch(()=>{});
+
+
+/* Manage Products live dashboard walkthrough. */
+(()=>{
+  const overlay=$('guidedWalkthrough');
+  const startButton=$('startManageWalkthrough');
+  if(!overlay||!startButton)return;
+
+  const steps=[
+    {target:'[data-language-toggle]',title:'walkLanguageTitle',copy:'walkLanguageCopy'},
+    {target:'[data-theme-toggle]',title:'walkThemeTitle',copy:'walkThemeCopy'},
+    {target:'#cartButton',title:'walkOrderTitle',copy:'walkOrderCopy'},
+    {target:'[data-site-menu-toggle]',title:'walkMenuButtonTitle',copy:'walkMenuButtonCopy'},
+    {target:'#siteMenu',title:'walkNavigationTitle',copy:'walkNavigationCopy'},
+    {target:'[data-site-route="manage"]',title:'walkManageLinkTitle',copy:'walkManageLinkCopy'},
+    {target:'#manageTitle',title:'walkLibraryTitle',copy:'walkLibraryCopy'},
+    {target:'#productEntrySection > summary',title:'walkProductSectionTitle',copy:'walkProductSectionCopy'},
+    {target:'.file-button',title:'walkPictureTitle',copy:'walkPictureCopy'},
+    {target:'.product-basics',title:'walkBasicsTitle',copy:'walkBasicsCopy'},
+    {target:'.purchase-disclosure',title:'walkPurchaseTitle',copy:'walkPurchaseCopy'},
+    {target:'.selling-disclosure',title:'walkSellingTitle',copy:'walkSellingCopy'},
+    {target:'.product-live-preview',title:'walkPreviewTitle',copy:'walkPreviewCopy'},
+    {target:'#financeMenuSection > summary',title:'walkFinanceSectionTitle',copy:'walkFinanceSectionCopy'},
+    {target:'.finance-tabs',title:'walkFinanceTabsTitle',copy:'walkFinanceTabsCopy'},
+    {target:'#inventoryGoodsSection > summary',title:'walkInventorySectionTitle',copy:'walkInventorySectionCopy'},
+    {target:'.inventory-heading-actions',title:'walkInventoryActionsTitle',copy:'walkInventoryActionsCopy'}
+  ];
+  let active=false;
+  let index=0;
+  let target=null;
+
+  const visibleTarget=selector=>[...document.querySelectorAll(selector)].find(element=>{
+    const style=getComputedStyle(element);
+    const rect=element.getBoundingClientRect();
+    return style.display!=='none'&&style.visibility!=='hidden'&&rect.width>0&&rect.height>0;
+  });
+
+  function configurePage(step){
+    setCartOpen(false);
+    if(index<=3)openSiteMenu(false);
+    if(index===4||index===5)openSiteMenu(true);
+    if(index===6){
+      openSiteMenu(false);
+      switchView('manage');
+    }
+    if(index>=7)switchView('manage');
+    const product=$('productEntrySection');
+    const finance=$('financeMenuSection');
+    const inventory=$('inventoryGoodsSection');
+    if(product)product.open=index>=8&&index<=12;
+    if(finance)finance.open=index===14;
+    if(inventory)inventory.open=index===16;
+  }
+
+  function position(){
+    if(!active||!target)return;
+    const rect=target.getBoundingClientRect();
+    const pad=8;
+    const spotlight=$('walkthroughSpotlight');
+    spotlight.style.left=`${Math.max(4,rect.left-pad)}px`;
+    spotlight.style.top=`${Math.max(4,rect.top-pad)}px`;
+    spotlight.style.width=`${Math.min(innerWidth-8,rect.width+pad*2)}px`;
+    spotlight.style.height=`${Math.min(innerHeight-8,rect.height+pad*2)}px`;
+
+    const card=$('walkthroughCard');
+    const gap=16;
+    const width=card.offsetWidth;
+    const height=card.offsetHeight;
+    let left=rect.right+gap;
+    if(left+width>innerWidth-8)left=rect.left-width-gap;
+    if(left<8)left=Math.max(8,Math.min(innerWidth-width-8,rect.left));
+    let top=rect.top;
+    if(top+height>innerHeight-8)top=innerHeight-height-8;
+    if(top<8)top=8;
+    if(Math.abs(left-rect.left)<20&&rect.bottom+gap+height<=innerHeight-8)top=rect.bottom+gap;
+    card.style.left=`${left}px`;
+    card.style.top=`${top}px`;
+  }
+
+  function render(){
+    if(!active)return;
+    if(target)target.classList.remove('walkthrough-target');
+    configurePage(steps[index]);
+    requestAnimationFrame(()=>requestAnimationFrame(()=>{
+      target=visibleTarget(steps[index].target);
+      if(!target){finish();return}
+      target.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'center',inline:'nearest'});
+      setTimeout(()=>{
+        if(!active)return;
+        target=visibleTarget(steps[index].target);
+        if(!target){finish();return}
+        target.classList.add('walkthrough-target');
+        $('walkthroughProgress').textContent=`${String(index+1).padStart(2,'0')} / ${String(steps.length).padStart(2,'0')}`;
+        $('walkthroughHeading').textContent=t(steps[index].title);
+        $('walkthroughCopy').textContent=t(steps[index].copy);
+        $('walkthroughNext').textContent=t(index===steps.length-1?'finishWalkthrough':'continueWalkthrough');
+        position();
+        $('walkthroughNext').focus({preventScroll:true});
+      },matchMedia('(prefers-reduced-motion: reduce)').matches?0:260);
+    }));
+  }
+
+  function start(){
+    active=true;
+    index=0;
+    overlay.hidden=false;
+    document.body.classList.add('walkthrough-open');
+    render();
+  }
+
+  function finish(){
+    active=false;
+    if(target)target.classList.remove('walkthrough-target');
+    target=null;
+    overlay.hidden=true;
+    document.body.classList.remove('walkthrough-open');
+  }
+
+  startButton.addEventListener('click',start);
+  $('walkthroughNext').addEventListener('click',()=>{if(index<steps.length-1){index+=1;render()}else finish()});
+  $('walkthroughSkip').addEventListener('click',finish);
+  $('walkthroughClose').addEventListener('click',finish);
+  addEventListener('resize',position,{passive:true});
+  addEventListener('scroll',position,{passive:true,capture:true});
+  document.addEventListener('keydown',event=>{if(active&&event.key==='Escape')finish()});
+  document.addEventListener('click',event=>{if(active&&event.target.closest('[data-language-toggle]'))setTimeout(render,0)});
+})();
